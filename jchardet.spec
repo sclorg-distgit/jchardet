@@ -2,7 +2,7 @@
 %{!?scl:%global pkg_name %{name}}
 %{?java_common_find_provides_and_requires}
 
-%global baserelease 3
+%global baserelease 4
 
 Name:           %{?scl_prefix}jchardet
 Version:        1.1
@@ -10,7 +10,7 @@ Release:        12.%{baserelease}%{?dist}
 Summary:        Java port of Mozilla's automatic character set detection algorithm
 
 Group:          Development/Libraries
-License:        MPLv1.1
+License:        MPLv1.1 or GPLv2+ or LGPLv2+
 URL:            http://jchardet.sourceforge.net/
 Source0:        http://download.sourceforge.net/jchardet/%{version}/jchardet-%{version}.zip
 Source1:        http://repo1.maven.org/maven2/net/sourceforge/%{pkg_name}/%{pkg_name}/1.0/%{pkg_name}-1.0.pom
@@ -77,6 +77,10 @@ set -e -x
 %doc LICENSE
 
 %changelog
+* Thu Feb 16 2017 Michael Simacek <msimacek@redhat.com> - 1.1-12.4
+- Fix incorrect license tag
+- Resolves: rhbz#1422845
+
 * Tue Feb 07 2017 Michael Simacek <msimacek@redhat.com> - 1.1-12.3
 - Fix directory ownership
 - Resolves rhbz#1418384
