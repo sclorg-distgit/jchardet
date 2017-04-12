@@ -2,7 +2,7 @@
 %{!?scl:%global pkg_name %{name}}
 %{?java_common_find_provides_and_requires}
 
-%global baserelease 2
+%global baserelease 3
 
 Name:           %{?scl_prefix}jchardet
 Version:        1.1
@@ -69,12 +69,18 @@ set -e -x
 
 
 %files -f .mfiles
+%dir %{_javadir}/%{pkg_name}
+%dir %{_mavenpomdir}/%{pkg_name}
 %doc LICENSE
 
 %files javadoc -f .mfiles-javadoc
 %doc LICENSE
 
 %changelog
+* Tue Feb 07 2017 Michael Simacek <msimacek@redhat.com> - 1.1-12.3
+- Fix directory ownership
+- Resolves rhbz#1418384
+
 * Fri Jan 20 2017 Michael Simacek <msimacek@redhat.com> - 1.1-12.2
 - Build for rh-maven33
 - Related: rhbz#1414193
